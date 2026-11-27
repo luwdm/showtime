@@ -72,4 +72,4 @@ Pro Ordner gibt es eine [Barrel-Datei](https://engineering.verygood.ventures/arc
 
 ## Lizenz
 
-Noch festzulegen.
+[MIT](LICENSE)
