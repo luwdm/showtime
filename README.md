@@ -1,5 +1,7 @@
 # Showtime
 
+[![CI](https://github.com/luwdm/showtime/actions/workflows/ci.yaml/badge.svg)](https://github.com/luwdm/showtime/actions/workflows/ci.yaml)
+
 Open-Source-Bildschirmrekorder für ansprechende Entwickler-Demos: Aufnahme mit automatischem Zoom, geglättetem Cursor, Hintergründen und Export als MP4/GIF.
 
 Plattformen: macOS, Windows, Linux (Flutter Desktop).
