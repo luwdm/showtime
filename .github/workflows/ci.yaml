@@ -37,6 +37,14 @@ jobs:
       - name: Test
         run: flutter test --coverage
 
+      - name: Test packages
+        run: |
+          for package in packages/*/; do
+            echo "::group::$package"
+            (cd "$package" && flutter test) || exit 1
+            echo "::endgroup::"
+          done
+
   build:
     name: Build (${{ matrix.platform }})
     needs: analyze-and-test

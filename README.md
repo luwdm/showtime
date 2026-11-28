@@ -4,7 +4,7 @@
 
 Open-Source-Bildschirmrekorder für ansprechende Entwickler-Demos: Aufnahme mit automatischem Zoom, geglättetem Cursor, Hintergründen und Export als MP4/GIF.
 
-Plattformen: macOS, Windows, Linux (Flutter Desktop).
+Plattformen: macOS 13+ (Aufnahme), Windows und Linux folgen (siehe [Plattform-Recherche](docs/screen-capture-platforms.md)).
 
 ## Setup
 
@@ -23,11 +23,15 @@ Die Flutter-Version ist über [fvm](https://fvm.app) in `.fvmrc` gepinnt.
    fvm flutter pub get
    ```
 
-4. App starten (`macos`, `windows` oder `linux`):
+4. App starten:
 
    ```bash
    fvm flutter run -d macos
    ```
+
+5. Beim ersten Start die Bildschirmaufnahme erlauben (Systemeinstellungen › Datenschutz & Sicherheit › Bildschirm- & Systemaudioaufnahme) und Showtime danach neu starten.
+
+Aufnahmen landen in `~/Movies/Showtime`.
 
 ## Entwicklung
 
@@ -37,6 +41,12 @@ fvm flutter analyze
 
 ```bash
 fvm flutter test
+```
+
+Tests der Packages laufen im jeweiligen Ordner, z. B.:
+
+```bash
+cd packages/recording_repository && fvm flutter test
 ```
 
 ```bash
@@ -62,11 +72,15 @@ showtime/
 │   ├── app/            # Root-Widget
 │   │   ├── view/
 │   │   └── app.dart    # Barrel-Datei
-│   ├── home/           # Feature: Startseite
+│   ├── recording/      # Feature: Aufnahme
+│   │   ├── bloc/
 │   │   ├── view/
-│   │   └── home.dart
+│   │   ├── widgets/
+│   │   └── recording.dart
 │   └── main.dart
-├── packages/           # Data- und Repository-Schicht (eigene Dart-Packages)
+├── packages/
+│   ├── recording_repository/   # Repository: Quellen, Dateinamen, Aufnahmedauer
+│   └── screen_capture_client/  # Data: native Aufnahme (ScreenCaptureKit, Pigeon)
 └── test/               # spiegelt die Struktur von lib/
 ```
 

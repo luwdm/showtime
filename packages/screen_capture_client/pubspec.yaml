@@ -1,0 +1,27 @@
+name: screen_capture_client
+description: Records the screen using the native capture APIs of the platform.
+version: 0.1.0+1
+publish_to: none
+
+environment:
+  sdk: ^3.14.0
+  flutter: ">=3.50.0"
+
+dependencies:
+  equatable: ^3.0.0
+  flutter:
+    sdk: flutter
+  meta: ^1.19.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  mocktail: ^1.0.5
+  pigeon: ^29.0.1
+  very_good_analysis: ^11.0.0
+
+flutter:
+  plugin:
+    platforms:
+      macos:
+        pluginClass: ScreenCaptureClientPlugin
